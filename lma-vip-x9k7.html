@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>പ്രവേശനം | തിരക്കഥ പഠനം</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;600;700;800&family=Noto+Serif+Malayalam:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap" style="max-width:460px;text-align:center;padding-top:70px">
+  <div style="font-size:64px">🎬</div>
+  <h1 style="text-align:center">സ്വാഗതം! <b>പ്രവേശന കവാടം</b></h1>
+  <p style="color:#6b655c;text-align:center">നിങ്ങളുടെ ACCESS CODE ഇവിടെ ഇടുക</p>
+  <div class="box tip" style="text-align:center">
+    <input id="codeInput" type="text" placeholder="CODE ഇവിടെ ഇടുക" style="width:100%;padding:14px;border-radius:10px;border:1px solid #E0D5C0;text-align:center;font-size:1.1em;letter-spacing:2px;text-transform:uppercase">
+    <a class="next" style="max-width:100%;margin-top:15px" href="javascript:void(0)" onclick="tryCode()">🔓 കോഴ്സ് തുറക്കൂ</a>
+  </div>
+  <p style="color:#8a8378;font-size:.82em">കോഡ് ഇല്ലേ? പേയ്മെന്റ് കഴിഞ്ഞ് സ്ക്രീൻഷോട്ട് അയക്കൂ!</p>
+</div>
+<script>
+var SECRET_CODE = "SCRIPT099";
+function tryCode(){
+  var c = document.getElementById('codeInput').value.trim().toUpperCase();
+  if(c === SECRET_CODE){
+    localStorage.setItem('lm_unlocked','1');
+    window.location.href = 'index.html';
+  } else {
+    alert('❌ തെറ്റായ കോഡ്!');
+  }
+}
+</script>
+</body>
+</html>
