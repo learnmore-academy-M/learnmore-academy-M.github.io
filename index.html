@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>തിരക്കഥ പഠനം | Screenwriting Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+body{font-family:'Noto Sans Malayalam','Poppins',sans-serif;background:#0f0f1a;color:#e0e0e0;line-height:1.8}
+::selection{background:transparent;color:transparent}
+
+/* ===== PAYWALL OVERLAY ===== */
+#paywall{position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#0f0f1a 0%,#1a1a2e 50%,#16213e 100%);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:20px}
+#paywall .lock-icon{font-size:80px;margin-bottom:20px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+#paywall h1{font-size:2.5em;color:#fff;margin-bottom:10px;font-weight:800}
+#paywall h1 span{color:#e94560}
+#paywall p{font-size:1.1em;color:#aaa;max-width:500px;margin-bottom:30px}
+#paywall .price{font-size:3em;color:#e94560;font-weight:800;margin-bottom:5px}
+#paywall .price small{font-size:0.4em;color:#888;text-decoration:line-through}
+#paywall .features{text-align:left;background:rgba(255,255,255,0.05);border-radius:16px;padding:20px 30px;margin-bottom:30px;border:1px solid rgba(255,255,255,0.1)}
+#paywall .features li{list-style:none;padding:6px 0;font-size:0.95em}
+#paywall .features li::before{content:"✅ ";margin-right:8px}
+#paywall .buy-btn{background:linear-gradient(135deg,#e94560,#c23152);color:#fff;border:none;padding:18px 50px;font-size:1.2em;font-weight:700;border-radius:50px;cursor:pointer;font-family:'Noto Sans Malayalam',sans-serif;transition:all 0.3s;box-shadow:0 10px 30px rgba(233,69,96,0.3)}
+#paywall .buy-btn:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(233,69,96,0.5)}
+#paywall .guarantee{margin-top:15px;font-size:0.85em;color:#666}
+
+/* ===== MAIN CONTENT ===== */
+#content{display:none}
+header{background:linear-gradient(135deg,#1a1a2e,#16213e);padding:60px 20px;text-align:center;border-bottom:3px solid #e94560}
+header h1{font-size:2.8em;font-weight:800;color:#fff}
+header h1 span{color:#e94560}
+header p{color:#aaa;font-size:1.1em;margin-top:10px}
+header .badge{display:inline-block;background:rgba(233,69,96,0.2);color:#e94560;padding:5px 15px;border-radius:20px;font-size:0.85em;margin-top:15px;border:1px solid rgba(233,69,96,0.3)}
+
+nav{background:#12121f;padding:15px;text-align:center;position:sticky;top:0;z-index:100;border-bottom:1px solid rgba(255,255,255,0.05)}
+nav a{color:#aaa;text-decoration:none;margin:0 12px;font-size:0.9em;transition:color 0.3s}
+nav a:hover{color:#e94560}
+
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+.chapter{margin-bottom:60px}
+.chapter-num{font-size:0.85em;color:#e94560;font-weight:700;text-transform:uppercase;letter-spacing:3px;margin-bottom:5px}
+.chapter h2{font-size:2em;color:#fff;font-weight:800;margin-bottom:20px;padding-bottom:15px;border-bottom:2px solid rgba(233,69,96,0.3)}
+.chapter h3{font-size:1.4em;color:#e94560;margin:30px 0 15px;font-weight:700}
+.chapter p{margin-bottom:15px;color:#ccc;font-size:1.05em}
+
+.script-box{background:#1a1a2e;border-left:4px solid #e94560;padding:20px 25px;margin:20px 0;border-radius:0 12px 12px 0;font-size:0.95em;line-height:2}
+.script-box .slugline{color:#e94560;font-weight:700;text-transform:uppercase}
+.script-box .action{color:#ccc;margin:10px 0}
+.script-box .char-name{text-align:center;color:#fff;font-weight:700;text-transform:uppercase;margin-top:15px}
+.script-box .parenthetical{text-align:center;color:#888;font-style:italic;font-size:0.9em}
+.script-box .dialogue{text-align:center;color:#e0e0e0;margin:5px 0 15px}
+
+.tip-box{background:linear-gradient(135deg,rgba(233,69,96,0.1),rgba(233,69,96,0.05));border:1px solid rgba(233,69,96,0.2);border-radius:12px;padding:20px;margin:20px 0}
+.tip-box .tip-title{color:#e94560;font-weight:700;margin-bottom:8px;font-size:1.05em}
+.tip-box p{margin:0;font-size:0.95em}
+
+.movie-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:20px;margin:20px 0}
+.movie-box .movie-title{color:#ffd700;font-weight:700;font-size:1.1em;margin-bottom:10px}
+.movie-box .movie-title span{font-size:0.8em;color:#888;font-weight:400}
+
+table{width:100%;border-collapse:collapse;margin:20px 0;border-radius:12px;overflow:hidden}
+th{background:#e94560;color:#fff;padding:12px 15px;text-align:left;font-weight:600}
+td{padding:12px 15px;border-bottom:1px solid rgba(255,255,255,0.05);color:#ccc}
+tr:nth-child(even){background:rgba(255,255,255,0.02)}
+
+.exercise-box{background:linear-gradient(135deg,rgba(46,204,113,0.1),rgba(46,204,113,0.05));border:1px solid rgba(46,204,113,0.2);border-radius:12px;padding:25px;margin:25px 0}
+.exercise-box .ex-title{color:#2ecc71;font-weight:700;font-size:1.1em;margin-bottom:15px}
+.exercise-box .ex-line{border-bottom:1px dashed rgba(255,255,255,0.2);padding:8px 0;margin:8px 0;color:#888;font-size:0.95em}
+
+footer{text-align:center;padding:40px 20px;background:#12121f;border-top:1px solid rgba(255,255,255,0.05);color:#666;font-size:0.9em}
+footer a{color:#e94560;text-decoration:none}
+
+.watermark{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-30deg);font-size:5em;color:rgba(255,255,255,0.02);pointer-events:none;z-index:1;font-weight:800;white-space:nowrap}
+
+@media(max-width:600px){
+header h1{font-size:1.8em}
+#paywall h1{font-size:1.8em}
+.chapter h2{font-size:1.5em}
+nav a{display:block;margin:8px 0}
+}
+</style>
+</head>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onkeydown="return false">
+
+<!-- ===== WATERMARK ===== -->
+<div class="watermark">തിരക്കഥ പഠനം</div>
+
+<!-- ===== PAYWALL SCREEN ===== -->
+<div id="paywall">
+    <div class="lock-icon">🔒</div>
+    <h1>തിരക്കഥ <span>പഠനം</span></h1>
+    <p>ഒരു മികച്ച സംവിധായകനാകാനുള്ള ആദ്യ ചുവട്. 50+ പേജ് പ്രൊഫഷണൽ ഗൈഡ് + പ്രാക്ടീസ് ഷീറ്റുകൾ + മലയാള സിനിമ ഉദാഹരണങ്ങൾ</p>
+    
+    <div class="price">₹99 <small>₹499</small></div>
+    
+    <div class="features">
+        <li>10 അധ്യായങ്ങൾ - സീറോ ടു പ്രോ</li>
+        <li>9 പ്രാക്ടീസ് ഷീറ്റുകൾ & എക്സർസൈസുകൾ</li>
+        <li>ദൃശ്യം, മഹേഷിന്റെ പ്രതികാരം, കുമ്പളങ്ങി നൈറ്റ്സ് വിശകലനം</li>
+        <li>സമ്പൂർണ്ണ ഷോർട്ട് ഫിലിം തിരക്കഥ സാമ്പിൾ</li>
+        <li>30 ദിവസത്തെ തിരക്കഥാ ചലഞ്ച്</li>
+        <li>ആജീവനാന്ത ആക്സസ്</li>
+    </div>
+    
+    <!-- ഇവിടെ നിങ്ങളുടെ Instamojo/Razorpay ലിങ്ക് പേസ്റ്റ് ചെയ്യുക -->
+    <button class="buy-btn" onclick="window.open('YOUR_PAYMENT_LINK_HERE','_blank')">🛒 ഇപ്പോൾ വാങ്ങുക - ₹99</button>
+    <div class="guarantee">🔒 Secure Payment | Instant Access</div>
+</div>
+
+<!-- ===== MAIN CONTENT (പേയ്മെന്റിന് ശേഷം കാണുന്നത്) ===== -->
+<div id="content">
+
+<header>
+    <h1>തിരക്കഥ <span>പഠനം</span></h1>
+    <p>ഒരു മികച്ച സംവിധായകനാകാനുള്ള ആദ്യ ചുവട്</p>
+    <div class="badge">📖 50+ പേജ് ഗൈഡ് | 🎬 മലയാള സിനിമ ഉദാഹരണങ്ങൾ</div>
+</header>
+
+<nav>
+    <a href="#ch1">അധ്യായം 1</a>
+    <a href="#ch2">അധ്യായം 2</a>
+    <a href="#ch3">അധ്യായം 3</a>
+    <a href="#ch4">അധ്യായം 4</a>
+    <a href="#ch5">അധ്യായം 5</a>
+    <a href="#ch6">അധ്യായം 6</a>
+    <a href="#ch7">അധ്യായം 7</a>
+    <a href="#ch8">എക്സർസൈസ്</a>
+    <a href="#ch9">ഷോർട്ട് ഫിലിം</a>
+    <a href="#ch10">റിസോഴ്സസ്</a>
+</nav>
+
+<div class="container">
+
+<!-- ===== അധ്യായം 1 ===== -->
+<div class="chapter" id="ch1">
+    <div class="chapter-num">അധ്യായം 01</div>
+    <h2>തിരക്കഥ എന്താണ്? സിനിമയുടെ നട്ടെല്ല്</h2>
+    
+    <h3>1.1 തിരക്കഥ = സിനിമയുടെ ബ്ലൂപ്രിന്റ്</h3>
+    <p>ഒരു വീട് പണിയുന്നതിന് മുമ്പ് ആർക്കിടെക്ട് ഒരു പ്ലാൻ വരയ്ക്കും. അതുപോലെ, ഒരു സിനിമ എടുക്കുന്നതിന് മുമ്പ് ഉണ്ടാക്കുന്ന <strong>ദൃശ്യ-ശ്രവ്യ പ്ലാൻ</strong> ആണ് തിരക്കഥ (Screenplay).</p>
+    
+    <div class="tip-box">
+        <div class="tip-title">💡 പ്രധാന പാഠം</div>
+        <p>"തിരക്കഥ എന്നത് കാണാൻ കഴിയുന്നതും കേൾക്കാൻ കഴിയുന്നതും ആയ കാര്യങ്ങളുടെ എഴുത്താണ്."</p>
+    </div>
+    
+    <p>ഒരു നോവലിൽ "രാവിലെ സൂര്യൻ ഉദിച്ചു, പക്ഷികൾ പാടി" എന്ന് എഴുതാം. പക്ഷേ തിരക്കഥയിൽ അത് എങ്ങനെ <strong>കാണിക്കും</strong> എന്നാണ് എഴുതുന്നത്:</p>
+    
+    <div class="script-box">
+        <div class="action">❌ <strong>നോവൽ രീതി:</strong><br>"അവൻ വളരെ സങ്കടത്തിലായിരുന്നു. ജീവിതത്തിൽ എല്ലാം നഷ്ടപ്പെട്ട ഒരു മനുഷ്യന്റെ നോവായിരുന്നു അത്."</div>
+    </div>
+    
+    <div class="script-box">
+        <div class="action">✅ <strong>തിരക്കഥ രീതി:</strong></div>
+        <div class="slugline">EXT. ബീച്ച് - പുലർച്ചെ</div>
+        <div class="action">കടൽത്തീരത്ത് ഒറ്റയ്ക്ക് ഇരിക്കുന്ന രാഘവൻ (55). കൈയ്യിൽ ഒരു പഴയ ഫോട്ടോ. ചെറിയ കാറ്റിൽ ഫോട്ടോ പറക്കാൻ തുടങ്ങുന്നു. അവൻ അത് മുറുകെ പിടിക്കുന്നു. കണ്ണുകളിൽ നീർ.</div>
+    </div>
+    
+    <div class="tip-box">
+        <div class="tip-title">🎯 വ്യത്യാസം കണ്ടോ?</div>
+        <p>തിരക്കഥയിൽ <strong>വികാരം വിവരിക്കുന്നില്ല, കാണിക്കുന്നു.</strong> ഇതാണ് "Show, Don't Tell" എന്ന നിയമം.</p>
+    </div>
+    
+    <h3>1.2 ഒരു തിരക്കഥയിലെ 5 പ്രധാന ഘടകങ്ങൾ</h3>
+    <table>
+        <tr><th>ഘടകം</th><th>എന്താണ്</th><th>ഉദാഹരണം</th></tr>
+        <tr><td><strong>Slugline</strong></td><td>എവിടെ, എപ്പോൾ</td><td>INT. വീട് - രാത്രി</td></tr>
+        <tr><td><strong>Action</strong></td><td>എന്ത് കാണുന്നു</td><td>ജോർജ്ജ് മേശയിൽ ഇരിക്കുന്നു</td></tr>
+        <tr><td><strong>Character</strong></td><td>ആർ പറയുന്നു</td><td>ജോർജ്ജ്</td></tr>
+        <tr><td><strong>Parenthetical</strong></td><td>എങ്ങനെ പറയുന്നു</td><td>(ദേഷ്യത്തോടെ)</td></tr>
+        <tr><td><strong>Dialogue</strong></td><td>എന്ത് പറയുന്നു</td><td>"ഹലോ... മോളേ..."</td></tr>
+    </table>
+    
+    <h3>1.3 മലയാള സിനിമയിൽ നിന്ന്</h3>
+    <div class="movie-box">
+        <div class="movie-title">🎬 ദൃശ്യം (2013) <span>- Jeethu Joseph</span></div>
+        <p>സിനിമയുടെ ഓപ്പണിംഗ് സീൻ ഓർക്കുക. ജോർജ്ജ് കുട്ടി (മോഹൻലാൽ) തന്റെ കടയിൽ ഇരിക്കുന്നു. ടിവിയിൽ സിനിമ കാണുന്നു. ആദ്യ 5 മിനിറ്റിൽ തന്നെ നമുക്ക് മനസ്സിലാകുന്നു:</p>
+        <p>• ഇയാൾ ഒരു സിനിമാ ഭ്രാന്തനാണ്<br>• ഇയാൾ കുടുംബത്തെ സ്നേഹിക്കുന്നു<br>• ഇയാൾ സാധാരണക്കാരനാണ്</p>
+        <p><strong>ഇതാണ് മികച്ച തിരക്കഥാ എഴുത്ത്</strong> - ഒരു ഡയലോഗ് പോലും ഇല്ലാതെ കഥാപാത്രത്തെ പരിചയപ്പെടുത്തുന്നു.</p>
+    </div>
+</div>
+
+<!-- ===== അധ്യായം 2 ===== -->
+<div class="chapter" id="ch2">
+    <div class="chapter-num">അധ്യായം 02</div>
+    <h2>കഥ, തിരക്കഥ, സംഭാഷണം - മൂന്നും മൂന്ന്</h2>
+    
+    <h3>2.1 മൂന്നും മൂന്ന് കാര്യങ്ങൾ</h3>
+    <table>
+        <tr><th>ഘടകം</th><th>ചോദ്യം</th><th>ഉദാഹരണം</th></tr>
+        <tr><td><strong>കഥ (Story)</strong></td><td>എന്ത് സംഭവിക്കുന്നു?</td><td>"ഒരു അച്ഛൻ കുടുംബത്തെ രക്ഷിക്കാൻ പോരാടുന്നു"</td></tr>
+        <tr><td><strong>തിരക്കഥ (Screenplay)</strong></td><td>എങ്ങനെ കാണിക്കുന്നു?</td><td>ഓരോ സീനും, ഷോട്ടും, ദൃശ്യവും</td></tr>
+        <tr><td><strong>സംഭാഷണം (Dialogue)</strong></td><td>എന്ത് പറയുന്നു?</td><td>കഥാപാത്രങ്ങളുടെ വാക്കുകൾ</td></tr>
+    </table>
+    
+    <h3>2.2 മലയാള സിനിമ ഉദാഹരണം</h3>
+    <div class="movie-box">
+        <div class="movie-title">🎬 മഹേഷിന്റെ പ്രതികാരം (2016) <span>- Syam Pushkaran</span></div>
+        <p><strong>കഥ:</strong> ഒരു ഫോട്ടോഗ്രാഫർ അവന്റെ ക്യാമറ മോഷ്ടിച്ചവനെ കണ്ടെത്തുന്നു.</p>
+        <p><strong>തിരക്കഥ:</strong> ആ കഥ <strong>എങ്ങനെ</strong> പറയുന്നു എന്നതാണ് Genius. മഹേഷിന്റെ നിഷ്കളങ്കത, ഇടുക്കിയുടെ ഗ്രാമീണ ഭംഗി, ഓരോ കഥാപാത്രത്തിന്റെയും ചെറിയ വിശദാംശങ്ങൾ.</p>
+        <p><strong>സംഭാഷണം:</strong> "ഈ ക്യാമറ ഞാൻ തിരിച്ചു വാങ്ങും... അല്ലെങ്കിൽ ഞാൻ ഫോട്ടോഗ്രഫി നിർത്തും" - ഈ ഒരു ഡയലോഗിൽ മുഴുവൻ സിനിമയുടെ ആത്മാവ് ഉണ്ട്.</p>
+    </div>
+    
+    <div class="tip-box">
+        <div class="tip-title">💡 ഓർക്കുക</div>
+        <p>"തിരക്കഥ എന്നത് കഥ പറയുന്നതല്ല, കഥ <strong>കാണിക്കുന്നതാണ്</strong>." - Show, Don't Tell</p>
+    </div>
+</div>
+
+<!-- ===== അധ്യായം 3 ===== -->
+<div class="chapter" id="ch3">
+    <div class="chapter-num">അധ്യായം 03</div>
+    <h2>മൂന്ന് ആക്ട് ഘടന (Three Act Structure)</h2>
+    
+    <h3>3.1 എല്ലാ സിനിമകളുടെയും അടിസ്ഥാന ഫോർമുല</h3>
+    <p>ഹോളിവുഡ് ആയാലും മോളിവുഡ് ആയാലും, 90% സിനിമകളും ഈ ഘടന പിന്തുടരുന്നു:</p>
+    
+    <table>
+        <tr><th>ആക്ട് 1 (25%)</th><th>ആക്ട് 2 (50%)</th><th>ആക്ട് 3 (25%)</th></tr>
+        <tr><td>Setup - പരിചയപ്പെടുത്തൽ</td><td>Confrontation - പ്രശ്നങ്ങൾ വളരുന്നു</td><td>Resolution - പരിഹാരം, ക്ലൈമാക്സ്</td></tr>
+    </table>
+    
+    <h3>3.2 ഓരോ ആക്ടിലും എന്ത് സംഭവിക്കുന്നു?</h3>
+    <p><strong>ആക്ട് 1:</strong> പ്രധാന കഥാപാത്രത്തെ പരിചയപ്പെടുത്തുക. സാധാരണ ജീവിതം കാണിക്കുക. <strong>Inciting Incident</strong> - കഥ തുടങ്ങുന്ന സംഭവം.</p>
+    <p><strong>ആക്ട് 2:</strong> പ്രശ്നങ്ങൾ വളരുന്നു. കഥാപാത്രം പരാജയപ്പെടുന്നു, പഠിക്കുന്നു. <strong>Midpoint</strong> - ഒരു വലിയ ട്വിസ്റ്റ്. <strong>All is Lost</strong> moment.</p>
+    <p><strong>ആക്ട് 3:</strong> ക്ലൈമാക്സ് - അന്തിമ പോരാട്ടം/തീരുമാനം. കഥാപാത്രത്തിന്റെ മാറ്റം (Character Arc). പുതിയ സാധാരണ ജീവിതം.</p>
+    
+    <h3>3.3 മലയാള സിനിമ ഉദാഹരണം</h3>
+    <div class="movie-box">
+        <div class="movie-title">🎬 പ്രേമം (2015) <span>- Alphonse Puthren</span></div>
+        <table>
+            <tr><th>ആക്ട്</th><th>എന്ത് സംഭവിക്കുന്നു</th></tr>
+            <tr><td>ആക്ട് 1</td><td>ജോർജിന്റെ സ്കൂൾ കാലം, മേരിയോടുള്ള പ്രേമം</td></tr>
+            <tr><td>ആക്ട് 2</td><td>കോളേജ് കാലം, സെലിനോടുള്ള ബന്ധം, പ്രശ്നങ്ങൾ</td></tr>
+            <tr><td>ആക്ട് 3</td><td>മുതിർന്ന ജോർജ്, സിനിമയുടെ പൂർത്തീകരണം</td></tr>
+        </table>
+    </div>
+</div>
+
+<!-- ===== അധ്യായം 4 ===== -->
+<div class="chapter" id="ch4">
+    <div class="chapter-num">അധ്യായം 04</div>
+    <h2>കഥാപാത്ര സൃഷ്ടി (Character Building)</h2>
+    
+    <h3>4.1 കഥാപാത്രം = സിനിമയുടെ ആത്മാവ്</h3>
+    <p>ഒരു നല്ല തിരക്കഥയിൽ, <strong>കഥാപാത്രം ആണ് കഥ പറയുന്നത്</strong>. പ്ലോട്ട് അല്ല, കഥാപാത്രത്തിന്റെ തീരുമാനങ്ങളാണ് കഥ മുന്നോട്ട് കൊണ്ടുപോകുന്നത്.</p>
+    
+    <h3>4.2 കഥാപാത്ര ബയോഡാറ്റ (Character Bible)</h3>
+    <table>
+        <tr><th>വിഭാഗം</th><th>ചോദ്യങ്ങൾ</th></tr>
+        <tr><td>അടിസ്ഥാനം</td><td>പേര്, പ്രായം, ലിംഗം, തൊഴിൽ, വിദ്യാഭ്യാസം</td></tr>
+        <tr><td>മനശാസ്ത്രം</td><td>ഭയം, ആഗ്രഹം, ദേഷ്യം, സന്തോഷം, ദുഃഖം</td></tr>
+        <tr><td>ബന്ധങ്ങൾ</td><td>കുടുംബം, സുഹൃത്തുക്കൾ, ശത്രുക്കൾ</td></tr>
+        <tr><td>ലക്ഷ്യം</td><td>എന്ത് വേണം? (Goal) / എന്ത് ആവശ്യമാണ്? (Need)</td></tr>
+        <tr><td>Arc</td><td>തുടക്കത്തിൽ എങ്ങനെ? അവസാനം എങ്ങനെ മാറുന്നു?</td></tr>
+    </table>
+    
+    <div class="movie-box">
+        <div class="movie-title">🎬 അയ്യപ്പനും കോശിയും (2020) <span>- Sachy</span></div>
+        <p><strong>അയ്യപ്പൻ നായർ:</strong> External Goal: കോശിയെ തോൽപ്പിക്കുക | Internal Need: തന്റെ അഹങ്കാരം മനസ്സിലാക്കുക</p>
+        <p><strong>കോശി:</strong> External Goal: അയ്യപ്പനെ തോൽപ്പിക്കുക | Internal Need: അധികാരം അല്ല, ബഹുമാനം ആണ് വേണ്ടത്</p>
+        <p><strong>പാഠം:</strong> രണ്ട് കഥാപാത്രങ്ങൾക്കും വ്യക്തമായ ലക്ഷ്യവും പരസ്പര വിരുദ്ധമായ ആഗ്രഹവും ഉണ്ട്. അതാണ് സംഘർഷം (Conflict) ഉണ്ടാക്കുന്നത്.</p>
+    </div>
+</div>
+
+<!-- ===== അധ്യായം 5 ===== -->
+<div class="chapter" id="ch5">
+    <div class="chapter-num">അധ്യായം 05</div>
+    <h2>സീൻ എഴുത്ത് - ഫോർമാറ്റും രീതിയും</h2>
+    
+    <h3>5.1 ഒരു സീൻ എന്നാൽ എന്ത്?</h3>
+    <p>ഒരു <strong>സ്ഥലത്ത്</strong>, ഒരു <strong>സമയത്ത്</strong>, ഒരു <strong>തുടർച്ചയായി</strong> സംഭവിക്കുന്ന ദൃശ്യങ്ങളുടെ കൂട്ടമാണ് ഒരു <strong>സീൻ</strong>. സ്ഥലം മാറിയാൽ → പുതിയ സീൻ. സമയം മാറിയാൽ → പുതിയ സീൻ.</p>
+    
+    <h3>5.2 ഫോർമാറ്റ് ഉദാഹരണം</h3>
+    <div class="script-box">
+        <div class="slugline">INT. ജോർജ്ജിന്റെ വീട് - രാത്രി</div>
+        <div class="action">ചെറിയ ഒരു ഹാൾ. മങ്ങിയ വെളിച്ചം. ചുമരിൽ ഒരു പഴയ കുടുംബ ഫോട്ടോ. ജോർജ്ജ് (55) മേശയിൽ ഇരിക്കുന്നു. മുന്നിൽ ഒരു കപ്പ് ചായ. ചായ തണുത്തു കഴിഞ്ഞു. അവൻ ഫോണിലേക്ക് നോക്കുന്നു. സ്ക്രീനിൽ "മകൾ വിളിക്കുന്നു" എന്ന് കാണുന്നു.</div>
+        <div class="char-name">ജോർജ്ജ്</div>
+        <div class="parenthetical">(കൈ വിറയ്ക്കുന്നു)</div>
+        <div class="dialogue">ഹലോ... മോളേ...</div>
+        <div class="char-name">അമു (ഫോണിൽ)</div>
+        <div class="parenthetical">(ദേഷ്യത്തോടെ)</div>
+        <div class="dialogue">അച്ഛാ, ഞാൻ വരുന്നില്ല. ഇനി എന്നെ വിളിക്കരുത്.</div>
+        <div class="action">ഫോൺ കട്ട് ആകുന്നു. ജോർജ്ജ് ഫോൺ മേശയിൽ വെക്കുന്നു. കണ്ണുകൾ നിറയുന്നു. അവൻ ചായ എടുത്ത് ഒരു കുടി കുടിക്കുന്നു. തണുത്ത ചായ. അവൻ പുഞ്ചിരിക്കുന്നു - ഒരു ചെറിയ, വിഷാദ പുഞ്ചിരി.</div>
+    </div>
+</div>
+
+<!-- ===== അധ്യായം 6 ===== -->
+<div class="chapter" id="ch6">
+    <div class="chapter-num">അധ്യായം 06</div>
+    <h2>സംഭാഷണം എഴുത്ത് (Dialogue Writing)</h2>
+    
+    <h3>നല്ല സംഭാഷണത്തിന്റെ 5 നിയമങ്ങൾ</h3>
+    <p><strong>നിയമം 1:</strong> ഓരോ കഥാപാത്രത്തിനും വ്യത്യസ്ത ശബ്ദം</p>
+    <p><strong>നിയമം 2:</strong> Subtext - പറയാത്തത് പറയുക</p>
+    <p><strong>നിയമം 3:</strong> കുറച്ച് വാക്കുകൾ, കൂടുതൽ അർത്ഥം</p>
+    <p><strong>നിയമം 4:</strong> Action > Dialogue (ചിലപ്പോൾ മൗനം ഏറ്റവും ശക്തം)</p>
+    <p><strong>നിയമം 5:</strong> Exposition ഒഴിവാക്കുക</p>
+    
+    <div class="movie-box">
+        <div class="movie-title">🎬 കുമ്പളങ്ങി നൈറ്റ്സ് (2019) <span>- Syam Pushkaran</span></div>
+        <p>ഓരോ കഥാപാത്രത്തിനും വ്യത്യസ്ത ശബ്ദം. ഫ്രാങ്ക്: "എന്താടാ..." (casual). അമ്മ: "മോനേ..." (സ്നേഹം). സൈമൺ: (ഗൗരവം, കുറച്ച് വാക്കുകൾ). ഇതാണ് മികച്ച ഡയലോഗ് എഴുത്ത്.</p>
+    </div>
+    
+    <div class="tip-box">
+        <div class="tip-title">💡 Subtext ഉദാഹരണം</div>
+        <p>മഹേഷ് പറയുന്നു: "ഈ ക്യാമറ ഞാൻ തിരിച്ചു വാങ്ങും."<br><strong>Subtext:</strong> "എന്റെ ആത്മാഭിമാനം ഞാൻ തിരിച്ചു പിടിക്കും."</p>
+    </div>
+</div>
+
+<!-- ===== അധ്യായം 7 ===== -->
+<div class="chapter" id="ch7">
+    <div class="chapter-num">അധ്യായം 07</div>
+    <h2>മലയാള സിനിമയിലെ തിരക്കഥാ വിശകലനം</h2>
+    
+    <div class="movie-box">
+        <div class="movie-title">🎬 ദൃശ്യം (2013) <span>- Thriller Structure</span></div>
+        <p><strong>Inciting Incident:</strong> ജോർജ്ജിന്റെ മകൾ ഒരു അപകടത്തിൽ പെടുന്നു<br>
+        <strong>Rising Action:</strong> സിനിമാ അറിവ് ഉപയോഗിച്ച് തെളിവുകൾ മറയ്ക്കുന്നു<br>
+        <strong>Climax:</strong> സത്യം വെളിപ്പെടുത്തുന്നു - ട്വിസ്റ്റോടെ<br>
+        <strong>പാഠം:</strong> ഒരു സാധാരണ മനുഷ്യൻ അസാധാരണ സാഹചര്യത്തിൽ</p>
+    </div>
+    
+    <div class="movie-box">
+        <div class="movie-title">🎬 ജോസഫ് (2018) <span>- Non-linear Narrative</span></div>
+        <p><strong>Structure:</strong> Past + Present - രണ്ട് കഥകൾ ഒന്നിക്കുന്നു<br>
+        <strong>Character Arc:</strong> ജോസഫ് - broken man → redemption<br>
+        <strong>Pacing:</strong> Slow burn - ഓരോ ക്ലൂവും ശ്രദ്ധാപൂർവം<br>
+        <strong>പാഠം:</strong> Structure മാറ്റിയാൽ കഥയ്ക്ക് പുതിയ ആഴം കിട്ടും</p>
+    </div>
+    
+    <div class="movie-box">
+        <div class="movie-title">🎬 ആട് (2015) <span>- Comedy Writing</span></div>
+        <p><strong>Comedy Engine:</strong> ഓരോ കഥാപാത്രത്തിനും ഒരു "quirk"<br>
+        <strong>Running Gag:</strong> "ഷാജി പപ്പൻ" - ആവർത്തിക്കുമ്പോൾ കോമഡി വളരുന്നു<br>
+        <strong>പാഠം:</strong> കോമഡി = Timing + Repetition + Surprise</p>
+    </div>
+</div>
+
+<!-- ===== അധ്യായം 8 ===== -->
+<div class="chapter" id="ch8">
+    <div class="chapter-num">അധ്യായം 08</div>
+    <h2>പ്രാക്ടീസ് ഷീറ്റുകൾ & എക്സർസൈസുകൾ</h2>
+    
+    <div class="exercise-box">
+        <div class="ex-title">✍️ എക്സർസൈസ് 1: നിങ്ങളുടെ കഥ കണ്ടെത്തുക</div>
+        <div class="ex-line">1. നിങ്ങളുടെ കഥാപാത്രം ആര്? (പേര്, പ്രായം, തൊഴിൽ)</div>
+        <div class="ex-line">2. അവന്/അവൾക്ക് എന്ത് വേണം? (Goal)</div>
+        <div class="ex-line">3. അതിന് എന്ത് തടസ്സം? (Conflict)</div>
+        <div class="ex-line">4. Logline: ഒരു _____ (കഥാപാത്രം) _____ (ലക്ഷ്യം) നേടാൻ _____ (തടസ്സം) മറികടക്കുന്നു.</div>
+    </div>
+    
+    <div class="exercise-box">
+        <div class="ex-title">✍️ എക്സർസൈസ് 2: മൂന്ന് ആക്ട് പൂരിപ്പിക്കുക</div>
+        <div class="ex-line">ആക്ട് 1 (തുടക്കം):</div>
+        <div class="ex-line">Inciting Incident:</div>
+        <div class="ex-line">ആക്ട് 2 (മധ്യം - പ്രശ്നം):</div>
+        <div class="ex-line">Midpoint Twist:</div>
+        <div class="ex-line">ആക്ട് 3 (അവസാനം):</div>
+    </div>
+    
+    <div class="exercise-box">
+        <div class="ex-title">✍️ എക്സർസൈസ് 3: കഥാപാത്ര ബയോഡാറ്റ</div>
+        <div class="ex-line">പേര്:</div>
+        <div class="ex-line">പ്രായം:</div>
+        <div class="ex-line">തൊഴിൽ:</div>
+        <div class="ex-line">ഏറ്റവും വലിയ ഭയം:</div>
+        <div class="ex-line">ഏറ്റവും വലിയ ആഗ്രഹം:</div>
+        <div class="ex-line">ഒരു രഹസ്യം (ആർക്കും അറിയാത്തത്):</div>
+        <div class="ex-line">ശരീരഭാഷ (Body Language):</div>
+        <div class="ex-line">സംസാര രീതി (Dialogue Style):</div>
+    </div>
+    
+    <h3>30 ദിവസത്തെ തിരക്കഥാ ചലഞ്ച്</h3>
+    <table>
+        <tr><th>ദിവസം</th><th>ടാസ്ക്</th></tr>
+        <tr><td>1-3</td><td>ഒരു Logline എഴുതുക (1 വാക്യം)</td></tr>
+        <tr><td>4-6</td><td>കഥാപാത്ര ബയോഡാറ്റ ഉണ്ടാക്കുക</td></tr>
+        <tr><td>7-9</td><td>മൂന്ന് ആക്ട് ഘടന പ്ലാൻ ചെയ്യുക</td></tr>
+        <tr><td>10-15</td><td>ആക്ട് 1 & 2 - ആദ്യ പകുതി എഴുതുക</td></tr>
+        <tr><td>16-21</td><td>Midpoint + ആക്ട് 2 രണ്ടാം പകുതി</td></tr>
+        <tr><td>22-27</td><td>ആക്ട് 3 + Dialogue Polish</td></tr>
+        <tr><td>28-30</td><td>Final Draft + Format ചെയ്യുക</td></tr>
+    </table>
+</div>
+
+<!-- ===== അധ്യായം 9 ===== -->
+<div class="chapter" id="ch9">
+    <div class="chapter-num">അധ്യായം 09</div>
+    <h2>ഷോർട്ട് ഫിലിം തിരക്കഥ - സമ്പൂർണ്ണ മാതൃക</h2>
+    
+    <h3>🎬 "ചായ" (Tea) - 3 മിനിറ്റ് ഷോർട്ട് ഫിലിം</h3>
+    <p><strong>Logline:</strong> ഒരു വയസ്സായ അച്ഛൻ മകളുടെ ഫോൺ കാത്തിരിക്കുന്നു. ഫോൺ വരുമ്പോൾ, അവൻ പറയാൻ ആഗ്രഹിച്ചത് ഒന്നും പറയുന്നില്ല.</p>
+    
+    <div class="script-box">
+        <div class="slugline">FADE IN:</div>
+        <div class="slugline">INT. ജോർജ്ജിന്റെ വീട് - രാവിലെ</div>
+        <div class="action">ചെറിയ, വൃത്തിയുള്ള ഒരു വീട്. ചുമരിൽ ഒരു പഴയ കുടുംബ ഫോട്ടോ - അച്ഛൻ, അമ്മ, ഒരു ചെറിയ പെൺകുട്ടി. ഫോട്ടോയിൽ അമ്മ പുഞ്ചിരിക്കുന്നു.</div>
+        <div class="action">ജോർജ്ജ് (65) മേശയിൽ ഇരിക്കുന്നു. മുന്നിൽ രണ്ട് കപ്പ് ചായ. ഒന്ന് അവന്റെ മുന്നിൽ, ഒന്ന് എതിരെ. എതിരെയുള്ള കപ്പ് - തണുത്തു കഴിഞ്ഞു.</div>
+        <div class="action">അവൻ ഫോണിലേക്ക് നോക്കുന്നു. സ്ക്രീൻ: "മകൾ - അമു" Last seen: 3 ദിവസം മുമ്പ്.</div>
+        <div class="char-name">ജോർജ്ജ്</div>
+        <div class="parenthetical">(സ്വയം)</div>
+        <div class="dialogue">വിളിക്കും... ഇന്ന് വിളിക്കും.</div>
+        <div class="action">അവൻ ചായ എടുക്കുന്നു. ഒരു കുടി. തണുത്ത ചായ. അവൻ പുഞ്ചിരിക്കുന്നു.</div>
+        <div class="slugline">INT. ജോർജ്ജിന്റെ വീട് - വൈകുന്നേരം</div>
+        <div class="action">ഫോൺ റിംഗ് ചെയ്യുന്നു! സ്ക്രീൻ: "അമു 🌸"</div>
+        <div class="action">ജോർജ്ജ് ഫോൺ എടുക്കുന്നു. കൈ വിറയ്ക്കുന്നു. ഒരു deep breath.</div>
+        <div class="char-name">ജോർജ്ജ്</div>
+        <div class="parenthetical">(ശാന്തമായി)</div>
+        <div class="dialogue">ഹലോ... മോളേ...</div>
+        <div class="char-name">അമു (V.O.)</div>
+        <div class="parenthetical">(ഫോണിൽ, വേഗതയിൽ)</div>
+        <div class="dialogue">അച്ഛാ, ഞാൻ ഒരു മിനിറ്റ് മാത്രം. നാളെ ഓണം അല്ലേ, ഞാൻ വരുന്നില്ല. ജോലി കൂടുതലാണ്.</div>
+        <div class="char-name">ജോർജ്ജ്</div>
+        <div class="dialogue">സാരമില്ല മോളേ... നീ...</div>
+        <div class="char-name">അമു (V.O.)</div>
+        <div class="dialogue">ഓക്കേ അച്ഛാ. Love you. Bye.</div>
+        <div class="action">ഫോൺ കട്ട്. ജോർജ്ജ് ഫോൺ മേശയിൽ വെക്കുന്നു. അവൻ ചായ എടുക്കുന്നു. ഒരു കുടി. തണുത്ത ചായ.</div>
+        <div class="action">അവൻ ചുമരിലെ ഫോട്ടോയിലേക്ക് നോക്കുന്നു.</div>
+        <div class="char-name">ജോർജ്ജ്</div>
+        <div class="parenthetical">(ഫോട്ടോയിലെ അമ്മയോട്)</div>
+        <div class="dialogue">അവൾക്ക് നേരമില്ല... പക്ഷേ സാരമില്ല.</div>
+        <div class="action">അവൻ പുഞ്ചിരിക്കുന്നു. ഒരു ചെറിയ, വിഷാദ പുഞ്ചിരി. പക്ഷേ കണ്ണുകളിൽ സ്നേഹം.</div>
+        <div class="slugline">FADE TO BLACK.</div>
+        <div class="action">TITLE CARD: "അച്ഛന്മാർക്ക് ചായ തണുത്താലും സ്നേഹം തണുക്കില്ല."</div>
+        <div class="slugline">THE END</div>
+    </div>
+    
+    <h3>ഈ ഷോർട്ട് ഫിലിമിൽ നിന്നുള്ള പാഠങ്ങൾ:</h3>
+    <table>
+        <tr><th>ഘടകം</th><th>എങ്ങനെ പ്രവർത്തിക്കുന്നു</th></tr>
+        <tr><td>രണ്ട് ചായ കപ്പുകൾ</td><td>Visual Symbol - അമ്മയുടെ അഭാവം</td></tr>
+        <tr><td>തണുത്ത ചായ</td><td>കാത്തിരിപ്പ്, ഏകാന്തത</td></tr>
+        <tr><td>ഡയലോഗ് കുറവ്</td><td>Show, Don't Tell</td></tr>
+        <tr><td>Subtext</td><td>"സാരമില്ല" - പക്ഷേ സാരമുണ്ട്</td></tr>
+    </table>
+</div>
+
+<!-- ===== അധ്യായം 10 ===== -->
+<div class="chapter" id="ch10">
+    <div class="chapter-num">അധ്യായം 10</div>
+    <h2>അടുത്ത ചുവടുകൾ & റിസോഴ്സുകൾ</h2>
+    
+    <h3>10.1 തിരക്കഥ എഴുതാനുള്ള സോഫ്റ്റ്‌വെയറുകൾ (Free)</h3>
+    <table>
+        <tr><th>സോഫ്റ്റ്‌വെയർ</th><th>പ്രത്യേകത</th></tr>
+        <tr><td>Celtx (Free tier)</td><td>Beginners-ക്ക് ഏറ്റവും നല്ലത്</td></tr>
+        <tr><td>WriterDuet (Free)</td><td>Cloud-based, collaboration</td></tr>
+        <tr><td>Trelby (Free)</td><td>Simple, offline</td></tr>
+    </table>
+    
+    <h3>10.2 വായിക്കേണ്ട പുസ്തകങ്ങൾ</h3>
+    <p>1. <strong>"Screenplay" - Syd Field</strong> (തിരക്കഥയുടെ ബൈബിൾ)<br>
+    2. <strong>"Story" - Robert McKee</strong> (കഥയുടെ ആഴം)<br>
+    3. <strong>"Save the Cat" - Blake Snyder</strong> (Structure)</p>
+    
+    <h3>10.3 കാണേണ്ട സിനിമകൾ</h3>
+    <table>
+        <tr><th>സിനിമ</th><th>എന്ത് പഠിക്കാം</th></tr>
+        <tr><td>ദൃശ്യം</td><td>Thriller Structure, Twist</td></tr>
+        <tr><td>കുമ്പളങ്ങി നൈറ്റ്സ്</td><td>Character-driven storytelling</td></tr>
+        <tr><td>ജോസഫ്</td><td>Non-linear narrative</td></tr>
+        <tr><td>മഹേഷിന്റെ പ്രതികാരം</td><td>Simple story, deep characters</td></tr>
+        <tr><td>ആട്</td><td>Comedy timing</td></tr>
+        <tr><td>പ്രേമം</td><td>Multi-act structure</td></tr>
+    </table>
+    
+    <div class="tip-box">
+        <div class="tip-title">🎯 അവസാന വാക്ക്</div>
+        <p>"തിരക്കഥ എഴുതുന്നതിന്റെ ഏറ്റവും നല്ല വഴി - എഴുതുക. മോശം എഴുതുക. വീണ്ടും എഴുതുക. ഓരോ ഡ്രാഫ്ടും മെച്ചപ്പെടും."</p>
+    </div>
+</div>
+
+</div>
+
+<footer>
+    <p>📖 തിരക്കഥ പഠനം | © 2025 നിങ്ങളുടെ പേര്</p>
+    <p style="margin-top:10px">Made with ❤️ for aspiring filmmakers</p>
+</footer>
+
+</div>
+
+<script>
+// ===== PAYMENT VERIFICATION =====
+// പേയ്മെന്റ് കഴിഞ്ഞാൽ ഈ ഫംഗ്ഷൻ കോൾ ചെയ്യുക
+// Instamojo/Razorpay webhook വഴി അല്ലെങ്കിൽ manual ആയി
+function unlockContent(){
+    document.getElementById('paywall').style.display='none';
+    document.getElementById('content').style.display='block';
+}
+
+// URL-ൽ ?paid=true ഉണ്ടെങ്കിൽ unlock ചെയ്യുക
+// (Instamojo redirect URL-ൽ ഇത് ചേർക്കാം)
+if(window.location.search.includes('paid=true')){
+    unlockContent();
+}
+
+// ===== PROTECTION =====
+document.addEventListener('contextmenu',function(e){e.preventDefault()});
+document.addEventListener('selectstart',function(e){e.preventDefault()});
+document.addEventListener('dragstart',function(e){e.preventDefault()});
+document.addEventListener('keydown',function(e){
+    if(e.ctrlKey&&(e.key==='c'||e.key==='v'||e.key==='p'||e.key==='s'||e.key==='u'||e.key==='a')){
+        e.preventDefault();return false;
+    }
+    if(e.key==='F12'||(e.ctrlKey&&e.shiftKey&&(e.key==='I'||e.key==='J'||e.key==='C'))){
+        e.preventDefault();return false;
+    }
+});
+document.addEventListener('copy',function(e){e.preventDefault()});
+document.addEventListener('cut',function(e){e.preventDefault()});
+
+// Print protection
+window.onbeforeprint=function(){document.body.style.display='none'};
+window.onafterprint=function(){document.body.style.display='block'};
+
+// Console warning
+console.log('%c⚠️ STOP!','font-size:50px;color:red;font-weight:bold');
+console.log('%cThis content is protected. Unauthorized copying is prohibited.','font-size:16px;color:white');
+</script>
+
+</body>
+</html>
