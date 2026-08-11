@@ -19,7 +19,7 @@
   <p style="color:#8a8378;font-size:.82em">കോഡ് ഇല്ലേ? പേയ്മെന്റ് കഴിഞ്ഞ് സ്ക്രീൻഷോട്ട് അയക്കൂ - ഉടൻ ലഭിക്കും!</p>
 </div>
 <script>
-var SECRET_CODE = "SCRIPT99";
+var SECRET_CODE = "KARIYILA99";
 function tryCode(){
   var c = document.getElementById('codeInput').value.trim().toUpperCase();
   if(c === SECRET_CODE){
